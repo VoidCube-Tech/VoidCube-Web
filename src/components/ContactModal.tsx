@@ -1,0 +1,169 @@
+import React, { useState } from 'react';
+import { X, MessageSquare, ShieldCheck, ArrowRight } from 'lucide-react';
+import { ContactContext } from '../types';
+
+interface ContactModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  context: ContactContext;
+}
+
+export const ContactModal: React.FC<ContactModalProps> = ({
+  isOpen,
+  onClose,
+  context,
+}) => {
+  const [name, setName] = useState('');
+  const [businessName, setBusinessName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [description, setDescription] = useState(context.initialNote || '');
+
+  if (!isOpen) return null;
+
+  const handleWhatsAppRedirect = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Formatting message for WhatsApp
+    const defaultPhone = '5511999999999'; // VoidCube commercial contact number
+    let messageText = `Olá! Vim pelo site da VoidCube.\n\n`;
+    messageText += `*Origem:* ${context.source}\n`;
+    if (context.projectTitle) {
+      messageText += `*Projeto de Referência:* ${context.projectTitle}\n`;
+    }
+    if (name.trim()) {
+      messageText += `*Nome:* ${name.trim()}\n`;
+    }
+    if (businessName.trim()) {
+      messageText += `*Empresa/Negócio:* ${businessName.trim()}\n`;
+    }
+    if (phone.trim()) {
+      messageText += `*Telefone/WhatsApp:* ${phone.trim()}\n`;
+    }
+    if (description.trim()) {
+      messageText += `*Sobre a necessidade do meu negócio:*\n${description.trim()}\n`;
+    } else {
+      messageText += `*Mensagem:* Gostaria de entender como a VoidCube pode ajudar meu negócio.`;
+    }
+
+    const encodedMessage = encodeURIComponent(messageText);
+    const whatsappUrl = `https://wa.me/${defaultPhone}?text=${encodedMessage}`;
+
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    onClose();
+  };
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#090F0F]/80 backdrop-blur-sm animate-in fade-in duration-200">
+      <div 
+        className="relative w-full max-w-lg bg-[#161D1D] border border-[#3F4948] rounded-xl shadow-2xl p-6 sm:p-8 text-[#DDE4E3] overflow-hidden"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Header */}
+        <div className="flex items-start justify-between pb-4 mb-6 border-b border-[#252B2B]">
+          <div>
+            <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full text-xs font-medium bg-[#1A2121] text-[#80D5D4] border border-[#004F4F] mb-2">
+              <MessageSquare className="w-3.5 h-3.5" />
+              Contato Direto WhatsApp
+            </div>
+            <h2 className="text-xl sm:text-2xl font-bold text-[#DDE4E3]">
+              Fale Direto Comigo
+            </h2>
+            <p className="text-xs sm:text-sm text-[#BEC9C8] mt-1">
+              Atendimento rápido em linguagem simples para entender o seu negócio.
+            </p>
+          </div>
+          <button
+            onClick={onClose}
+            className="p-1.5 text-[#BEC9C8] hover:text-[#DDE4E3] hover:bg-[#252B2B] rounded-lg transition-colors cursor-pointer"
+            aria-label="Fechar modal"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
+
+        {/* Form Context Banner */}
+        <div className="mb-6 p-3.5 bg-[#1A2121] rounded-lg border border-[#252B2B] text-xs text-[#BEC9C8]">
+          <span className="text-[#80D5D4] font-medium">Origem do contato:</span>{' '}
+          <span className="text-[#DDE4E3] font-medium">{context.source}</span>
+          {context.projectTitle && (
+            <div className="mt-1 text-[#DDE4E3]">
+              <span className="text-[#80D5D4]">Exemplo de interesse:</span> {context.projectTitle}
+            </div>
+          )}
+        </div>
+
+        {/* Form */}
+        <form onSubmit={handleWhatsAppRedirect} className="space-y-4">
+          <div>
+            <label className="block text-xs font-semibold uppercase tracking-wider text-[#BEC9C8] mb-1.5">
+              Seu Nome ou da Sua Empresa
+            </label>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Ex: Carlos Silva ou Loja Exemplo"
+              className="w-full px-3.5 py-2.5 bg-[#090F0F] border border-[#3F4948] rounded-lg text-sm text-[#DDE4E3] placeholder-[#889392] focus:outline-none focus:border-[#80D5D4] focus:ring-1 focus:ring-[#80D5D4] transition-all"
+            />
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-xs font-semibold uppercase tracking-wider text-[#BEC9C8] mb-1.5">
+                Ramo do Seu Negócio
+              </label>
+              <input
+                type="text"
+                value={businessName}
+                onChange={(e) => setBusinessName(e.target.value)}
+                placeholder="Ex: Loja, Clínica, Serviços"
+                className="w-full px-3.5 py-2.5 bg-[#090F0F] border border-[#3F4948] rounded-lg text-sm text-[#DDE4E3] placeholder-[#889392] focus:outline-none focus:border-[#80D5D4] focus:ring-1 focus:ring-[#80D5D4] transition-all"
+              />
+            </div>
+            <div>
+              <label className="block text-xs font-semibold uppercase tracking-wider text-[#BEC9C8] mb-1.5">
+                Seu WhatsApp (opcional)
+              </label>
+              <input
+                type="tel"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                placeholder="(11) 99999-9999"
+                className="w-full px-3.5 py-2.5 bg-[#090F0F] border border-[#3F4948] rounded-lg text-sm text-[#DDE4E3] placeholder-[#889392] focus:outline-none focus:border-[#80D5D4] focus:ring-1 focus:ring-[#80D5D4] transition-all"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-xs font-semibold uppercase tracking-wider text-[#BEC9C8] mb-1.5">
+              O que seu negócio precisa hoje?
+            </label>
+            <textarea
+              rows={3}
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              placeholder="Descreva se precisa criar um site, refazer um existente ou se quer tirar dúvidas."
+              className="w-full px-3.5 py-2.5 bg-[#090F0F] border border-[#3F4948] rounded-lg text-sm text-[#DDE4E3] placeholder-[#889392] focus:outline-none focus:border-[#80D5D4] focus:ring-1 focus:ring-[#80D5D4] transition-all resize-none"
+            />
+          </div>
+
+          <div className="pt-2">
+            <button
+              type="submit"
+              className="w-full py-3.5 px-6 bg-[#80D5D4] hover:bg-[#9CF1F0] text-[#003737] font-bold text-sm rounded-lg flex items-center justify-center gap-2 transition-all cursor-pointer group"
+            >
+              <span>Continuar para o WhatsApp</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </div>
+        </form>
+
+        {/* Footer Guarantee */}
+        <div className="mt-5 pt-4 border-t border-[#252B2B] flex items-center justify-center gap-2 text-xs text-[#889392]">
+          <ShieldCheck className="w-4 h-4 text-[#80D5D4]" />
+          <span>Atendimento direto e sem intermediários</span>
+        </div>
+      </div>
+    </div>
+  );
+};

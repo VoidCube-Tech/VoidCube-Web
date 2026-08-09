@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-main: #0E1514;
+    --surface: #0E1514;
+    --surface-container-lowest: #090F0F;
+    --surface-container-low: #161D1D;
+    --surface-container: #1A2121;
+    --surface-container-high: #252B2B;
+    --surface-container-highest: #2F3636;
+    --primary: #80D5D4;
+    --on-primary: #003737;
+    --primary-container: #004F4F;
+    --on-primary-container: #9CF1F0;
+    --secondary: #B0CCCB;
+    --on-secondary: #1B3534;
+    --outline: #889392;
+    --outline-variant: #3F4948;
+    --on-surface: #DDE4E3;
+    --on-surface-variant: #BEC9C8;
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--on-surface);
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    overflow-x: hidden;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Custom Scrollbar for Dark Minimalist Look */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #090F0F;
+}
+::-webkit-scrollbar-thumb {
+  background: #252B2B;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3F4948;
+}
+
+/* Custom subtle noise background texture */
+.bg-grid-pattern {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(63, 73, 72, 0.15) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(63, 73, 72, 0.15) 1px, transparent 1px);
+}

@@ -1,0 +1,8 @@
+{
+  "name": "VoidCube",
+  "description": "Landing page oficial do desenvolvedor VoidCube — parceiro técnico de confiança para pequenas e médias empresas.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

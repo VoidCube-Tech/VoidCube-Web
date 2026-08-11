@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, ShieldCheck } from 'lucide-react';
+import bgLogo from '/assets/VoidCube_LOGO.jpeg';
 
 interface HeroProps {
   onOpenContact: (source: string) => void;
@@ -7,18 +8,22 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
   return (
-    <section className="pt-12 pb-16 sm:pt-20 sm:pb-24 bg-[#0E1514] w-full max-w-full overflow-hidden" id="hero-section">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative pt-12 pb-16 sm:pt-20 sm:pb-24 bg-[#0E1514] w-full max-w-full overflow-hidden" id="hero-section">
+      {/* Background Image with Dark Overlay */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 pointer-events-none"
+        style={{ backgroundImage: `url(${bgLogo})` }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0E1514]/80 via-[#0E1514]/60 to-[#0E1514] pointer-events-none" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
           {/* Left Column: Headline, Subheadline, CTA */}
           <div className="lg:col-span-7 flex flex-col items-start space-y-6">
             
             {/* Tag / Eyebrow */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#161D1D] border border-[#252B2B] text-xs font-medium text-[#80D5D4]">
-              <ShieldCheck className="w-3.5 h-3.5" />
-              <span>VoidCube • Tecnologia e Presença Digital para PMEs</span>
-            </div>
+            
 
             {/* Main Headline (H1) */}
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#DDE4E3] leading-[1.15] tracking-tight">

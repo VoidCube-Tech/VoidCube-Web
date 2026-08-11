@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, UserCheck } from 'lucide-react';
+import { ArrowRight, Target, CheckCircle2 } from 'lucide-react';
 
 interface SobreTeaserProps {
   onOpenFullAbout: () => void;
@@ -14,51 +14,54 @@ export const SobreTeaser: React.FC<SobreTeaserProps> = ({
     <section className="py-16 sm:py-20 bg-[#0E1514]" id="sobre-teaser">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="p-8 bg-[#161D1D] rounded-lg border border-[#252B2B]">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+        <div className="p-8 sm:p-10 bg-[#161D1D] rounded-xl border border-[#252B2B]">
+          <div className="max-w-3xl space-y-5">
             
-            {/* Developer Photo Placeholder */}
-            <div className="md:col-span-4 flex flex-col items-center justify-center p-6 bg-[#0E1514] rounded border border-[#252B2B] text-center">
-              <div className="w-14 h-14 rounded bg-[#1A2121] border border-[#252B2B] flex items-center justify-center text-[#80D5D4] mb-3">
-                <UserCheck className="w-7 h-7" />
-              </div>
-              <p className="text-xs text-[#80D5D4] font-medium">
-                [Foto do responsável — VoidCube]
-              </p>
-              <span className="text-[11px] text-[#889392] mt-1">
-                Atendimento e Desenvolvimento Direto
-              </span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded text-xs font-semibold bg-[#0E1514] text-[#80D5D4] border border-[#252B2B]">
+              <Target className="w-3.5 h-3.5" />
+              <span>Foco em Resultados Comerciais</span>
             </div>
 
-            {/* Content */}
-            <div className="md:col-span-8 space-y-4">
-              <h2 className="text-xl sm:text-2xl font-bold text-[#DDE4E3]">
-                Desenvolvimento focado em autonomia e resultados reais para o seu negócio
-              </h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#DDE4E3] tracking-tight">
+              Desenvolvimento focado em eficiência e crescimento para a sua empresa
+            </h2>
 
-              <p className="text-sm text-[#BEC9C8] leading-relaxed">
-                Desenvolvedor e fundador da VoidCube, atuo transformando os objetivos de pequenas e médias empresas em sites e sistemas ágeis e eficientes. Atuação próxima ao cliente com comunicação clara, direta e sem intermediários.
-              </p>
+            <p className="text-sm sm:text-base text-[#BEC9C8] leading-relaxed">
+              Na VoidCube, construímos sistemas e sites sob medida para pequenas e médias empresas. Nosso compromisso é entregar soluções ágeis, com carregamento rápido e navegação simples para transformar seus visitantes em clientes reais.
+            </p>
 
-              {/* Action Links */}
-              <div className="pt-2 flex flex-wrap items-center gap-4">
-                <button
-                  onClick={onOpenFullAbout}
-                  className="py-2.5 px-5 bg-[#80D5D4] hover:bg-[#9CF1F0] text-[#003737] font-bold text-xs rounded transition-colors flex items-center gap-2 cursor-pointer"
-                  id="sobre-full-trajectory-btn"
-                >
-                  <span>Conhecer mais sobre o trabalho</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-
-                <button
-                  onClick={() => onOpenContact('Sobre Teaser Direct')}
-                  className="py-2.5 px-4 text-[#BEC9C8] hover:text-[#DDE4E3] font-medium text-xs transition-colors cursor-pointer"
-                >
-                  Conversar diretamente
-                </button>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+              <div className="p-3 bg-[#0E1514] rounded border border-[#252B2B] text-xs">
+                <span className="font-bold text-[#80D5D4] block mb-1">Sem Intermediários</span>
+                <p className="text-[#BEC9C8]">Comunicação direta para agilizar decisões e entregas.</p>
               </div>
+              <div className="p-3 bg-[#0E1514] rounded border border-[#252B2B] text-xs">
+                <span className="font-bold text-[#80D5D4] block mb-1">Agilidade Total</span>
+                <p className="text-[#BEC9C8]">Sites leves prontos para funcionar perfeitamente no celular.</p>
+              </div>
+              <div className="p-3 bg-[#0E1514] rounded border border-[#252B2B] text-xs">
+                <span className="font-bold text-[#80D5D4] block mb-1">Independência do Cliente</span>
+                <p className="text-[#BEC9C8]">Você tem controle e propriedade total sobre sua solução.</p>
+              </div>
+            </div>
 
+            {/* Action Links */}
+            <div className="pt-4 flex flex-wrap items-center gap-4">
+              <button
+                onClick={onOpenFullAbout}
+                className="py-3 px-6 bg-[#80D5D4] hover:bg-[#9CF1F0] text-[#003737] font-bold text-xs rounded transition-colors flex items-center gap-2 cursor-pointer"
+                id="sobre-full-trajectory-btn"
+              >
+                <span>Conhecer mais sobre nossa atuação</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+
+              <button
+                onClick={() => onOpenContact('Sobre Teaser Direct')}
+                className="py-3 px-4 text-[#BEC9C8] hover:text-[#DDE4E3] font-medium text-xs transition-colors cursor-pointer"
+              >
+                Conversar sobre seu projeto
+              </button>
             </div>
 
           </div>

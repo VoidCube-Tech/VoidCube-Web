@@ -5,12 +5,12 @@ import { Problema } from './components/Problema';
 import { Solucao } from './components/Solucao';
 import { Projetos } from './components/Projetos';
 import { SobreTeaser } from './components/SobreTeaser';
-import { CtaFinal } from './components/CtaFinal';
 import { Footer } from './components/Footer';
 
 import { ContactModal } from './components/ContactModal';
 import { CaseStudyModal } from './components/CaseStudyModal';
 import { SobreFullModal } from './components/SobreFullModal';
+import { WhatsAppFloat } from './components/WhatsAppFloat';
 
 import { Project, ContactContext } from './types';
 
@@ -39,7 +39,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0E1514] text-[#DDE4E3] flex flex-col font-sans selection:bg-[#004F4F] selection:text-[#9CF1F0]">
+    <div className="min-h-screen bg-[#0E1514] text-[#DDE4E3] flex flex-col font-sans selection:bg-[#004F4F] selection:text-[#9CF1F0] overflow-x-hidden w-full max-w-full">
       {/* 1. Header */}
       <Header onOpenContact={handleOpenContact} />
 
@@ -65,9 +65,6 @@ export default function App() {
           onOpenFullAbout={() => setSobreModalOpen(true)}
           onOpenContact={handleOpenContact}
         />
-
-        {/* 7. CTA Final */}
-        <CtaFinal onOpenContact={handleOpenContact} />
       </main>
 
       {/* 8. Footer */}
@@ -91,6 +88,9 @@ export default function App() {
         onClose={() => setSobreModalOpen(false)}
         onContactClick={() => handleOpenContact('Sobre Full Trajectory Modal')}
       />
+
+      {/* Floating WhatsApp Contact Button */}
+      <WhatsAppFloat onOpenContact={handleOpenContact} />
     </div>
   );
 }

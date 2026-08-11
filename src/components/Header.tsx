@@ -82,73 +82,44 @@ export const Header: React.FC<HeaderProps> = ({ onOpenContact }) => {
           </button>
         </nav>
 
-        {/* Desktop Status & CTA */}
-        <div className="hidden md:flex items-center gap-4">
-          <button
-            onClick={() => onOpenContact('Header Navigation')}
-            className="py-2 px-4 bg-[#80D5D4] hover:bg-[#9CF1F0] text-[#003737] font-bold text-xs rounded transition-colors cursor-pointer"
-            id="header-cta-button"
-          >
-            <span>Fale comigo agora</span>
-          </button>
-        </div>
-
-        {/* Mobile Hamburger Button */}
-        <div className="flex md:hidden items-center gap-2">
-          <button
-            onClick={() => onOpenContact('Header Mobile Direct')}
-            className="py-1.5 px-3 bg-[#80D5D4] text-[#003737] font-bold text-xs rounded mr-1"
-            id="mobile-header-cta"
-          >
-            Contato
-          </button>
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-1.5 text-[#BEC9C8] hover:text-[#DDE4E3] bg-[#161D1D] rounded border border-[#252B2B]"
-            aria-label="Abrir menu"
-            id="mobile-menu-toggle"
-          >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
-        </div>
+        {/* Mobile Hamburger Menu Toggle Button */}
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="md:hidden p-2 text-[#BEC9C8] hover:text-[#DDE4E3] bg-[#161D1D] hover:bg-[#252B2B] rounded-lg border border-[#252B2B] transition-colors cursor-pointer flex items-center gap-2"
+          aria-label="Abrir menu de navegação"
+          id="header-menu-toggle"
+        >
+          {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+        </button>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Navigation Drawer (Opens for Mobile Menu toggle) */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#161D1D] border-b border-[#252B2B] px-4 pt-3 pb-6 space-y-3">
-          <button 
-            onClick={() => scrollToSection('problema')}
-            className="block w-full text-left py-2 text-sm text-[#BEC9C8] hover:text-[#80D5D4]"
-          >
-            Diagnóstico
-          </button>
-          <button 
-            onClick={() => scrollToSection('solucao')}
-            className="block w-full text-left py-2 text-sm text-[#BEC9C8] hover:text-[#80D5D4]"
-          >
-            Processo de Trabalho
-          </button>
-          <button 
-            onClick={() => scrollToSection('projetos')}
-            className="block w-full text-left py-2 text-sm text-[#BEC9C8] hover:text-[#80D5D4]"
-          >
-            Projetos & Showcase
-          </button>
-          <button 
-            onClick={() => scrollToSection('sobre-teaser')}
-            className="block w-full text-left py-2 text-sm text-[#BEC9C8] hover:text-[#80D5D4]"
-          >
-            Sobre o Desenvolvedor
-          </button>
-          <div className="pt-2">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenContact('Header Mobile Drawer');
-              }}
-              className="w-full py-2.5 bg-[#80D5D4] text-[#003737] font-bold text-xs rounded text-center"
+        <div className="md:hidden bg-[#161D1D] border-b border-[#252B2B] px-6 py-4 space-y-3 animate-in fade-in duration-200">
+          <div className="max-w-7xl mx-auto space-y-2">
+            <button 
+              onClick={() => scrollToSection('problema')}
+              className="block w-full text-left py-2 text-sm font-medium text-[#BEC9C8] hover:text-[#80D5D4] transition-colors cursor-pointer"
             >
-              Fale comigo agora
+              Diagnóstico
+            </button>
+            <button 
+              onClick={() => scrollToSection('solucao')}
+              className="block w-full text-left py-2 text-sm font-medium text-[#BEC9C8] hover:text-[#80D5D4] transition-colors cursor-pointer"
+            >
+              Processo de Trabalho
+            </button>
+            <button 
+              onClick={() => scrollToSection('projetos')}
+              className="block w-full text-left py-2 text-sm font-medium text-[#BEC9C8] hover:text-[#80D5D4] transition-colors cursor-pointer"
+            >
+              Projetos & Showcase
+            </button>
+            <button 
+              onClick={() => scrollToSection('sobre-teaser')}
+              className="block w-full text-left py-2 text-sm font-medium text-[#BEC9C8] hover:text-[#80D5D4] transition-colors cursor-pointer"
+            >
+              Sobre
             </button>
           </div>
         </div>

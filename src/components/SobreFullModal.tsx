@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, ShieldCheck, Award, CheckCircle2, ArrowRight, UserCheck } from 'lucide-react';
+import { X, ShieldCheck, CheckCircle2, ArrowRight } from 'lucide-react';
 
 interface SobreFullModalProps {
   isOpen: boolean;
@@ -15,60 +15,50 @@ export const SobreFullModal: React.FC<SobreFullModalProps> = ({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#090F0F]/85 backdrop-blur-md animate-in fade-in duration-200">
+    <div 
+      className="fixed inset-0 z-[200] flex items-center justify-center p-3 sm:p-4 bg-[#090F0F]/85 backdrop-blur-md overflow-y-auto animate-in fade-in duration-200"
+      onClick={onClose}
+    >
       <div 
-        className="relative w-full max-w-2xl max-h-[90vh] bg-[#161D1D] border border-[#3F4948] rounded-xl shadow-2xl overflow-y-auto p-6 sm:p-8 text-[#DDE4E3]"
+        className="relative w-full max-w-2xl bg-[#161D1D] border border-[#3F4948] rounded-xl shadow-2xl p-4 sm:p-6 lg:p-8 text-[#DDE4E3] my-auto box-border"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="flex items-start justify-between pb-4 mb-6 border-b border-[#252B2B]">
+        <div className="flex items-start justify-between pb-3 mb-4 sm:pb-4 sm:mb-6 border-b border-[#252B2B]">
           <div>
-            <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full text-xs font-medium bg-[#1A2121] text-[#80D5D4] border border-[#004F4F] mb-2 uppercase">
-              <ShieldCheck className="w-3.5 h-3.5" />
-              Parceiro de Confiança
+            <div className="inline-flex items-center gap-1.5 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-medium bg-[#1A2121] text-[#80D5D4] border border-[#004F4F] mb-1.5 uppercase">
+              <ShieldCheck className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+              <span>Parceiro de Confiança</span>
             </div>
-            <h2 className="text-2xl font-bold text-[#DDE4E3]">
+            <h2 className="text-lg sm:text-2xl font-bold text-[#DDE4E3]">
               Sobre a VoidCube
             </h2>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 text-[#BEC9C8] hover:text-[#DDE4E3] hover:bg-[#252B2B] rounded-lg transition-colors cursor-pointer"
+            className="p-1 sm:p-1.5 text-[#BEC9C8] hover:text-[#DDE4E3] hover:bg-[#252B2B] rounded-lg transition-colors cursor-pointer shrink-0 ml-2"
             aria-label="Fechar janela"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
-        {/* Developer Image Placeholder Badge */}
-        <div className="mb-6 p-6 bg-[#090F0F] rounded-lg border border-[#252B2B] flex flex-col items-center justify-center text-center">
-          <div className="w-16 h-16 mb-3 rounded-full bg-[#1A2121] border border-[#004F4F] flex items-center justify-center text-[#80D5D4]">
-            <UserCheck className="w-8 h-8" />
-          </div>
-          <p className="text-xs sm:text-sm font-medium text-[#80D5D4]">
-            [Foto do responsável — VoidCube]
-          </p>
-          <p className="text-xs text-[#889392] mt-1">
-            Atendimento direto e personalizado
-          </p>
-        </div>
-
         {/* Story */}
         <div className="space-y-4 text-sm text-[#BEC9C8] leading-relaxed mb-6">
           <p>
-            Desenvolvedor e especialista em soluções digitais comerciais, atuo criando sites e sistemas sob medida para pequenas e médias empresas que precisam de uma presença digital forte e eficiente, sem burocracia ou custos desnecessários.
+            Especializada em desenvolvimento web comercial e automação de processos, a <strong className="text-[#DDE4E3]">VoidCube</strong> cria sites e sistemas sob medida para pequenas e médias empresas que buscam resultados práticos, carregamento rápido e atração constante de novos clientes.
           </p>
           <p>
-            Na <strong className="text-[#DDE4E3]">VoidCube</strong>, meu compromisso é ser um parceiro de negócios direto: desde o primeiro entendimento do que sua empresa precisa até a entrega final e o suporte.
+            Nosso compromisso é com a clareza e a transparência: desde a reunião inicial até o lançamento e acompanhamento.
           </p>
           <p>
-            Diferente das agências tradicionais onde seu projeto passa por gerentes e atendentes, aqui você conversa diretamente com quem está criando o seu site.
+            Eliminamos burocracias e processos engessados de agências tradicionais para garantir agilidade nas entregas e foco absoluto nas metas do seu negócio.
           </p>
         </div>
 
         {/* Core Commitments */}
         <div className="mb-6">
-          <h3 className="text-xs font-semibold uppercase tracking-wider text-[#DDE4E3] mb-3">Compromissos de Trabalho</h3>
+          <h3 className="text-xs font-semibold uppercase tracking-wider text-[#DDE4E3] mb-3">Diretrizes do Nosso Trabalho</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div className="p-3 bg-[#1A2121] rounded-lg border border-[#252B2B] flex items-start gap-2.5">
               <CheckCircle2 className="w-4 h-4 text-[#80D5D4] shrink-0 mt-0.5" />
@@ -110,7 +100,7 @@ export const SobreFullModal: React.FC<SobreFullModalProps> = ({
             }}
             className="w-full sm:w-auto px-5 py-3 bg-[#80D5D4] hover:bg-[#9CF1F0] text-[#003737] font-bold text-xs sm:text-sm rounded-lg flex items-center justify-center gap-2 transition-all cursor-pointer"
           >
-            <span>Fale Comigo Agora</span>
+            <span>Falar com a VoidCube</span>
             <ArrowRight className="w-4 h-4" />
           </button>
           <button

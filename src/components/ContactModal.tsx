@@ -53,28 +53,31 @@ export const ContactModal: React.FC<ContactModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#090F0F]/80 backdrop-blur-sm animate-in fade-in duration-200">
+    <div 
+      className="fixed inset-0 z-[200] flex items-center justify-center p-3 sm:p-4 bg-[#090F0F]/85 backdrop-blur-md overflow-y-auto animate-in fade-in duration-200"
+      onClick={onClose}
+    >
       <div 
-        className="relative w-full max-w-lg bg-[#161D1D] border border-[#3F4948] rounded-xl shadow-2xl p-6 sm:p-8 text-[#DDE4E3] overflow-hidden"
+        className="relative w-full max-w-lg bg-[#161D1D] border border-[#3F4948] rounded-xl shadow-2xl p-4 sm:p-6 text-[#DDE4E3] my-auto box-border"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="flex items-start justify-between pb-4 mb-6 border-b border-[#252B2B]">
-          <div>
-            <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full text-xs font-medium bg-[#1A2121] text-[#80D5D4] border border-[#004F4F] mb-2">
-              <MessageSquare className="w-3.5 h-3.5" />
-              Contato Direto WhatsApp
+        <div className="flex items-start justify-between pb-3 mb-4 border-b border-[#252B2B]">
+          <div className="pr-2">
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-[#1A2121] text-[#80D5D4] border border-[#004F4F] mb-1.5">
+              <MessageSquare className="w-3.5 h-3.5 shrink-0" />
+              <span>Contato Direto WhatsApp</span>
             </div>
-            <h2 className="text-xl sm:text-2xl font-bold text-[#DDE4E3]">
+            <h2 className="text-lg sm:text-xl font-bold text-[#DDE4E3]">
               Fale Direto Comigo
             </h2>
-            <p className="text-xs sm:text-sm text-[#BEC9C8] mt-1">
+            <p className="text-xs text-[#BEC9C8] mt-1">
               Atendimento rápido em linguagem simples para entender o seu negócio.
             </p>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 text-[#BEC9C8] hover:text-[#DDE4E3] hover:bg-[#252B2B] rounded-lg transition-colors cursor-pointer"
+            className="p-2 text-[#BEC9C8] hover:text-[#DDE4E3] hover:bg-[#252B2B] rounded-lg transition-colors cursor-pointer shrink-0"
             aria-label="Fechar modal"
           >
             <X className="w-5 h-5" />
@@ -82,7 +85,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
         </div>
 
         {/* Form Context Banner */}
-        <div className="mb-6 p-3.5 bg-[#1A2121] rounded-lg border border-[#252B2B] text-xs text-[#BEC9C8]">
+        <div className="mb-4 p-3 bg-[#1A2121] rounded-lg border border-[#252B2B] text-xs text-[#BEC9C8]">
           <span className="text-[#80D5D4] font-medium">Origem do contato:</span>{' '}
           <span className="text-[#DDE4E3] font-medium">{context.source}</span>
           {context.projectTitle && (
@@ -93,9 +96,9 @@ export const ContactModal: React.FC<ContactModalProps> = ({
         </div>
 
         {/* Form */}
-        <form onSubmit={handleWhatsAppRedirect} className="space-y-4">
+        <form onSubmit={handleWhatsAppRedirect} className="space-y-3 sm:space-y-4">
           <div>
-            <label className="block text-xs font-semibold uppercase tracking-wider text-[#BEC9C8] mb-1.5">
+            <label className="block text-[11px] font-semibold uppercase tracking-wider text-[#BEC9C8] mb-1">
               Seu Nome ou da Sua Empresa
             </label>
             <input
@@ -103,13 +106,13 @@ export const ContactModal: React.FC<ContactModalProps> = ({
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Ex: Carlos Silva ou Loja Exemplo"
-              className="w-full px-3.5 py-2.5 bg-[#090F0F] border border-[#3F4948] rounded-lg text-sm text-[#DDE4E3] placeholder-[#889392] focus:outline-none focus:border-[#80D5D4] focus:ring-1 focus:ring-[#80D5D4] transition-all"
+              className="w-full px-3 py-2.5 bg-[#090F0F] border border-[#3F4948] rounded-lg text-xs sm:text-sm text-[#DDE4E3] placeholder-[#889392] focus:outline-none focus:border-[#80D5D4] focus:ring-1 focus:ring-[#80D5D4] transition-all box-border"
             />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
             <div>
-              <label className="block text-xs font-semibold uppercase tracking-wider text-[#BEC9C8] mb-1.5">
+              <label className="block text-[11px] font-semibold uppercase tracking-wider text-[#BEC9C8] mb-1">
                 Ramo do Seu Negócio
               </label>
               <input
@@ -117,11 +120,11 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                 value={businessName}
                 onChange={(e) => setBusinessName(e.target.value)}
                 placeholder="Ex: Loja, Clínica, Serviços"
-                className="w-full px-3.5 py-2.5 bg-[#090F0F] border border-[#3F4948] rounded-lg text-sm text-[#DDE4E3] placeholder-[#889392] focus:outline-none focus:border-[#80D5D4] focus:ring-1 focus:ring-[#80D5D4] transition-all"
+                className="w-full px-3 py-2.5 bg-[#090F0F] border border-[#3F4948] rounded-lg text-xs sm:text-sm text-[#DDE4E3] placeholder-[#889392] focus:outline-none focus:border-[#80D5D4] focus:ring-1 focus:ring-[#80D5D4] transition-all box-border"
               />
             </div>
             <div>
-              <label className="block text-xs font-semibold uppercase tracking-wider text-[#BEC9C8] mb-1.5">
+              <label className="block text-[11px] font-semibold uppercase tracking-wider text-[#BEC9C8] mb-1">
                 Seu WhatsApp (opcional)
               </label>
               <input
@@ -129,13 +132,13 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="(11) 99999-9999"
-                className="w-full px-3.5 py-2.5 bg-[#090F0F] border border-[#3F4948] rounded-lg text-sm text-[#DDE4E3] placeholder-[#889392] focus:outline-none focus:border-[#80D5D4] focus:ring-1 focus:ring-[#80D5D4] transition-all"
+                className="w-full px-3 py-2.5 bg-[#090F0F] border border-[#3F4948] rounded-lg text-xs sm:text-sm text-[#DDE4E3] placeholder-[#889392] focus:outline-none focus:border-[#80D5D4] focus:ring-1 focus:ring-[#80D5D4] transition-all box-border"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-semibold uppercase tracking-wider text-[#BEC9C8] mb-1.5">
+            <label className="block text-[11px] font-semibold uppercase tracking-wider text-[#BEC9C8] mb-1">
               O que seu negócio precisa hoje?
             </label>
             <textarea
@@ -143,14 +146,14 @@ export const ContactModal: React.FC<ContactModalProps> = ({
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Descreva se precisa criar um site, refazer um existente ou se quer tirar dúvidas."
-              className="w-full px-3.5 py-2.5 bg-[#090F0F] border border-[#3F4948] rounded-lg text-sm text-[#DDE4E3] placeholder-[#889392] focus:outline-none focus:border-[#80D5D4] focus:ring-1 focus:ring-[#80D5D4] transition-all resize-none"
+              className="w-full px-3 py-2.5 bg-[#090F0F] border border-[#3F4948] rounded-lg text-xs sm:text-sm text-[#DDE4E3] placeholder-[#889392] focus:outline-none focus:border-[#80D5D4] focus:ring-1 focus:ring-[#80D5D4] transition-all resize-none box-border"
             />
           </div>
 
-          <div className="pt-2">
+          <div className="pt-1">
             <button
               type="submit"
-              className="w-full py-3.5 px-6 bg-[#80D5D4] hover:bg-[#9CF1F0] text-[#003737] font-bold text-sm rounded-lg flex items-center justify-center gap-2 transition-all cursor-pointer group"
+              className="w-full py-3 px-4 bg-[#80D5D4] hover:bg-[#9CF1F0] text-[#003737] font-bold text-xs sm:text-sm rounded-lg flex items-center justify-center gap-2 transition-all cursor-pointer group"
             >
               <span>Continuar para o WhatsApp</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -159,8 +162,8 @@ export const ContactModal: React.FC<ContactModalProps> = ({
         </form>
 
         {/* Footer Guarantee */}
-        <div className="mt-5 pt-4 border-t border-[#252B2B] flex items-center justify-center gap-2 text-xs text-[#889392]">
-          <ShieldCheck className="w-4 h-4 text-[#80D5D4]" />
+        <div className="mt-4 pt-3 border-t border-[#252B2B] flex items-center justify-center gap-2 text-xs text-[#889392]">
+          <ShieldCheck className="w-4 h-4 text-[#80D5D4] shrink-0" />
           <span>Atendimento direto e sem intermediários</span>
         </div>
       </div>

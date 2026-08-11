@@ -16,25 +16,28 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
   if (!project) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#090F0F]/85 backdrop-blur-md animate-in fade-in duration-200">
+    <div 
+      className="fixed inset-0 z-[200] flex items-center justify-center p-3 sm:p-4 bg-[#090F0F]/85 backdrop-blur-md overflow-y-auto animate-in fade-in duration-200"
+      onClick={onClose}
+    >
       <div 
-        className="relative w-full max-w-2xl max-h-[90vh] bg-[#161D1D] border border-[#3F4948] rounded-xl shadow-2xl overflow-y-auto p-6 sm:p-8 text-[#DDE4E3]"
+        className="relative w-full max-w-2xl bg-[#161D1D] border border-[#3F4948] rounded-xl shadow-2xl p-4 sm:p-6 lg:p-8 text-[#DDE4E3] my-auto box-border"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="flex items-start justify-between pb-4 mb-6 border-b border-[#252B2B]">
+        <div className="flex items-start justify-between pb-3 mb-4 sm:pb-4 sm:mb-6 border-b border-[#252B2B]">
           <div>
-            <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full text-xs font-medium bg-[#1A2121] text-[#80D5D4] border border-[#004F4F] mb-2 uppercase">
-              <Box className="w-3.5 h-3.5" />
-              {project.category === 'tecnica' ? 'Demonstração Prática' : 'Ferramenta Comercial'}
+            <div className="inline-flex items-center gap-1.5 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-medium bg-[#1A2121] text-[#80D5D4] border border-[#004F4F] mb-1.5 uppercase">
+              <Box className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+              <span>{project.category === 'tecnica' ? 'Demonstração Prática' : 'Ferramenta Comercial'}</span>
             </div>
-            <h2 className="text-2xl font-bold text-[#DDE4E3]">
+            <h2 className="text-lg sm:text-2xl font-bold text-[#DDE4E3]">
               {project.title}
             </h2>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 text-[#BEC9C8] hover:text-[#DDE4E3] hover:bg-[#252B2B] rounded-lg transition-colors cursor-pointer"
+            className="p-1 sm:p-1.5 text-[#BEC9C8] hover:text-[#DDE4E3] hover:bg-[#252B2B] rounded-lg transition-colors cursor-pointer shrink-0 ml-2"
             aria-label="Fechar modal"
           >
             <X className="w-5 h-5" />
@@ -42,14 +45,14 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
         </div>
 
         {/* Media Placeholder Badge */}
-        <div className="mb-6 p-6 sm:p-8 bg-[#090F0F] rounded-lg border border-[#252B2B] flex flex-col items-center justify-center text-center">
-          <div className="w-12 h-12 mb-3 rounded-full bg-[#1A2121] border border-[#004F4F] flex items-center justify-center text-[#80D5D4]">
-            <Box className="w-6 h-6" />
+        <div className="mb-4 sm:mb-6 p-4 sm:p-8 bg-[#090F0F] rounded-lg border border-[#252B2B] flex flex-col items-center justify-center text-center">
+          <div className="w-10 h-10 sm:w-12 sm:h-12 mb-2 sm:mb-3 rounded-full bg-[#1A2121] border border-[#004F4F] flex items-center justify-center text-[#80D5D4]">
+            <Box className="w-5 h-5 sm:w-6 sm:h-6" />
           </div>
           <p className="text-xs sm:text-sm font-medium text-[#80D5D4] max-w-md">
             {project.placeholderText}
           </p>
-          <p className="text-xs text-[#889392] mt-2">
+          <p className="text-[11px] sm:text-xs text-[#889392] mt-1.5">
             Estrutura desenvolvida pela VoidCube com foco em conversão e facilidade de uso.
           </p>
         </div>

@@ -14,7 +14,7 @@ export const Footer: React.FC<FooterProps> = () => {
   };
 
   return (
-    <footer className="bg-[#090F0F] border-t border-[#252B2B] pt-12 pb-8 text-[#BEC9C8]">
+    <footer className="bg-[#090F0F] border-t border-[#252B2B] pt-12 pb-8 text-[#BEC9C8] w-full max-w-full overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 border-b border-[#252B2B]">

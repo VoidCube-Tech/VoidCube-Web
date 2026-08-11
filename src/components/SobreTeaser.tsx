@@ -11,7 +11,7 @@ export const SobreTeaser: React.FC<SobreTeaserProps> = ({
   onOpenContact,
 }) => {
   return (
-    <section className="py-16 sm:py-20 bg-[#0E1514]" id="sobre-teaser">
+    <section className="py-16 sm:py-20 bg-[#0E1514] w-full max-w-full overflow-hidden" id="sobre-teaser">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="p-8 sm:p-10 bg-[#161D1D] rounded-xl border border-[#252B2B]">

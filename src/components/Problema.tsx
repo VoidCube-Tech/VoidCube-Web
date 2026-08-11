@@ -3,7 +3,7 @@ import { AlertCircle, CheckCircle2, Smartphone, Clock, MessageSquareX } from 'lu
 
 export const Problema: React.FC = () => {
   return (
-    <section className="py-16 sm:py-20 bg-[#161D1D] border-y border-[#252B2B]" id="problema">
+    <section className="py-16 sm:py-20 bg-[#161D1D] border-y border-[#252B2B] w-full max-w-full overflow-hidden" id="problema">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

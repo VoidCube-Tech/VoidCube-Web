@@ -31,13 +31,13 @@ export const Header: React.FC<HeaderProps> = ({ onOpenContact }) => {
         ? 'bg-[#0E1514] border-b border-[#252B2B]' 
         : 'bg-[#0E1514] border-b border-transparent'
     }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
         
         {/* Brand Logo */}
         <a 
           href="#top" 
           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-          className="flex items-center gap-2.5 group"
+          className="flex items-center gap-2.5 shrink-0 group"
           id="header-brand-logo"
         >
           <div className="w-8 h-8 rounded bg-[#161D1D] border border-[#252B2B] flex items-center justify-center text-[#80D5D4]">
@@ -51,31 +51,31 @@ export const Header: React.FC<HeaderProps> = ({ onOpenContact }) => {
         </a>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-8 text-xs font-medium text-[#BEC9C8]">
+        <nav className="hidden md:flex items-center gap-4 lg:gap-8 text-xs font-medium text-[#BEC9C8]">
           <button 
             onClick={() => scrollToSection('problema')}
-            className="hover:text-[#80D5D4] transition-colors cursor-pointer"
+            className="hover:text-[#80D5D4] transition-colors cursor-pointer whitespace-nowrap"
             id="nav-link-problema"
           >
             Diagnóstico
           </button>
           <button 
             onClick={() => scrollToSection('solucao')}
-            className="hover:text-[#80D5D4] transition-colors cursor-pointer"
+            className="hover:text-[#80D5D4] transition-colors cursor-pointer whitespace-nowrap"
             id="nav-link-solucao"
           >
             Processo
           </button>
           <button 
             onClick={() => scrollToSection('projetos')}
-            className="hover:text-[#80D5D4] transition-colors cursor-pointer"
+            className="hover:text-[#80D5D4] transition-colors cursor-pointer whitespace-nowrap"
             id="nav-link-projetos"
           >
             Projetos
           </button>
           <button 
             onClick={() => scrollToSection('sobre-teaser')}
-            className="hover:text-[#80D5D4] transition-colors cursor-pointer"
+            className="hover:text-[#80D5D4] transition-colors cursor-pointer whitespace-nowrap"
             id="nav-link-sobre"
           >
             Sobre
@@ -85,7 +85,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenContact }) => {
         {/* Mobile Hamburger Menu Toggle Button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 text-[#BEC9C8] hover:text-[#DDE4E3] bg-[#161D1D] hover:bg-[#252B2B] rounded-lg border border-[#252B2B] transition-colors cursor-pointer flex items-center gap-2"
+          className="md:hidden p-2 text-[#BEC9C8] hover:text-[#DDE4E3] bg-[#161D1D] hover:bg-[#252B2B] rounded-lg border border-[#252B2B] transition-colors cursor-pointer flex items-center justify-center shrink-0"
           aria-label="Abrir menu de navegação"
           id="header-menu-toggle"
         >
@@ -95,29 +95,29 @@ export const Header: React.FC<HeaderProps> = ({ onOpenContact }) => {
 
       {/* Navigation Drawer (Opens for Mobile Menu toggle) */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#161D1D] border-b border-[#252B2B] px-6 py-4 space-y-3 animate-in fade-in duration-200">
-          <div className="max-w-7xl mx-auto space-y-2">
+        <div className="md:hidden bg-[#161D1D] border-b border-[#252B2B] px-4 py-3 space-y-2 animate-in fade-in duration-200">
+          <div className="max-w-7xl mx-auto space-y-1">
             <button 
               onClick={() => scrollToSection('problema')}
-              className="block w-full text-left py-2 text-sm font-medium text-[#BEC9C8] hover:text-[#80D5D4] transition-colors cursor-pointer"
+              className="block w-full text-left py-2 px-3 text-sm font-medium text-[#BEC9C8] hover:text-[#80D5D4] hover:bg-[#0E1514] rounded-md transition-colors cursor-pointer"
             >
               Diagnóstico
             </button>
             <button 
               onClick={() => scrollToSection('solucao')}
-              className="block w-full text-left py-2 text-sm font-medium text-[#BEC9C8] hover:text-[#80D5D4] transition-colors cursor-pointer"
+              className="block w-full text-left py-2 px-3 text-sm font-medium text-[#BEC9C8] hover:text-[#80D5D4] hover:bg-[#0E1514] rounded-md transition-colors cursor-pointer"
             >
               Processo de Trabalho
             </button>
             <button 
               onClick={() => scrollToSection('projetos')}
-              className="block w-full text-left py-2 text-sm font-medium text-[#BEC9C8] hover:text-[#80D5D4] transition-colors cursor-pointer"
+              className="block w-full text-left py-2 px-3 text-sm font-medium text-[#BEC9C8] hover:text-[#80D5D4] hover:bg-[#0E1514] rounded-md transition-colors cursor-pointer"
             >
               Projetos & Showcase
             </button>
             <button 
               onClick={() => scrollToSection('sobre-teaser')}
-              className="block w-full text-left py-2 text-sm font-medium text-[#BEC9C8] hover:text-[#80D5D4] transition-colors cursor-pointer"
+              className="block w-full text-left py-2 px-3 text-sm font-medium text-[#BEC9C8] hover:text-[#80D5D4] hover:bg-[#0E1514] rounded-md transition-colors cursor-pointer"
             >
               Sobre
             </button>

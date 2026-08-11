@@ -29,11 +29,11 @@ export const Projetos: React.FC<ProjetosProps> = ({ onSelectProject, onOpenConta
   });
 
   return (
-    <section className="py-16 sm:py-20 bg-[#161D1D] border-y border-[#252B2B]" id="projetos">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-12 sm:py-20 bg-[#161D1D] border-y border-[#252B2B] w-full max-w-full overflow-hidden" id="projetos">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full max-w-full">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6 sm:mb-8">
           <div className="max-w-2xl">
             <h2 className="text-2xl sm:text-3xl font-bold text-[#DDE4E3] tracking-tight">
               Exemplos de Soluções Práticas
@@ -108,9 +108,9 @@ export const Projetos: React.FC<ProjetosProps> = ({ onSelectProject, onOpenConta
         )}
 
         {/* Projects Cards Container - Horizontal Scroll on Mobile, Grid on Desktop */}
-        <div>
+        <div className="w-full max-w-full">
           {filteredProjects.length === 0 ? (
-            <div className="p-12 text-center bg-[#0E1514] rounded-xl border border-[#252B2B] text-[#BEC9C8] text-xs space-y-3">
+            <div className="p-8 sm:p-12 text-center bg-[#0E1514] rounded-xl border border-[#252B2B] text-[#BEC9C8] text-xs space-y-3">
               <p className="text-sm font-semibold text-[#DDE4E3]">Nenhuma demonstração encontrada</p>
               <p className="text-xs text-[#889392]">
                 Tente buscar com outros termos ou selecione "Todos" nos filtros.
@@ -126,13 +126,13 @@ export const Projetos: React.FC<ProjetosProps> = ({ onSelectProject, onOpenConta
               </button>
             </div>
           ) : (
-            <div className="w-full overflow-x-auto scrollbar-none pb-4 -mx-2 px-2 sm:mx-0 sm:px-0">
+            <div className="w-full overflow-x-auto scrollbar-none pb-2">
               <div className="flex snap-x snap-mandatory gap-3 sm:gap-4 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6 md:pb-0">
                 {filteredProjects.map((proj) => (
                   <div
                     key={proj.id}
                     onClick={() => onSelectProject(proj)}
-                    className="w-[82vw] max-w-[280px] shrink-0 snap-start md:w-auto md:max-w-none md:shrink-1 p-4 sm:p-6 bg-[#0E1514] rounded-xl border border-[#252B2B] hover:border-[#3F4948] transition-all flex flex-col justify-between cursor-pointer group hover:shadow-lg hover:shadow-black/40 select-none"
+                    className="w-[260px] sm:w-[280px] shrink-0 snap-start md:w-auto md:shrink-1 p-4 sm:p-6 bg-[#0E1514] rounded-xl border border-[#252B2B] hover:border-[#3F4948] transition-all flex flex-col justify-between cursor-pointer group hover:shadow-lg hover:shadow-black/40 select-none"
                   >
                   <div>
                     {/* Clean Media Placeholder Box */}

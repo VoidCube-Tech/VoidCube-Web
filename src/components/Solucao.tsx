@@ -32,7 +32,7 @@ export const Solucao: React.FC = () => {
   const currentStepData = PROCESS_STEPS.find((s) => s.stepNumber === activeStep) || PROCESS_STEPS[0];
 
   return (
-    <section ref={sectionRef} className="py-12 sm:py-20 lg:py-24 bg-[#0E1514]" id="solucao">
+    <section ref={sectionRef} className="py-12 sm:py-20 lg:py-24 bg-[#0E1514] w-full max-w-full overflow-hidden" id="solucao">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

@@ -136,10 +136,20 @@ export const Projetos: React.FC<ProjetosProps> = ({ onSelectProject, onOpenConta
                   >
                   <div>
                     {/* Clean Media Placeholder Box */}
-                    <div className="mb-3 sm:mb-4 p-3 sm:p-4 bg-[#161D1D] rounded-lg border border-[#252B2B] text-center group-hover:border-[#80D5D4]/40 transition-colors">
-                      <p className="text-[11px] font-medium text-[#80D5D4]">
-                        {proj.placeholderText}
-                      </p>
+                    <div className="mb-3 sm:mb-4 bg-[#161D1D] rounded-lg border border-[#252B2B] overflow-hidden group-hover:border-[#80D5D4]/40 transition-colors">
+                      {proj.image ? (
+                        <img 
+                          src={proj.image} 
+                          alt={proj.title} 
+                          className="w-full h-40 sm:h-48 object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                        />
+                      ) : (
+                        <div className="p-3 sm:p-4 text-center">
+                          <p className="text-[11px] font-medium text-[#80D5D4]">
+                            {proj.placeholderText}
+                          </p>
+                        </div>
+                      )}
                     </div>
 
                     <h3 className="text-sm sm:text-base font-bold text-[#DDE4E3] mb-1.5 sm:mb-2 group-hover:text-[#80D5D4] transition-colors">

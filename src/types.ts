@@ -8,6 +8,7 @@ export interface Project {
   fullDescription: string;
   technologies: string[];
   placeholderText: string;
+  image?: string;
   metrics?: string;
   problemSolved?: string;
   solutionProvided?: string;

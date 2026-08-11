@@ -27,7 +27,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
 
             {/* Main Headline (H1) */}
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#DDE4E3] leading-[1.15] tracking-tight">
-              Seu negócio merece um site que <span className="text-[#80D5D4]">realmente traz clientes</span> — e um parceiro em quem você pode confiar.
+              Seu negócio merece um site que <span className="text-[#80D5D4]">realmente traz clientes</span> e um parceiro em quem você pode confiar.
             </h1>
 
             {/* Subheadline */}

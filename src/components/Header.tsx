@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import logoIco from '/assets/VoidCube_ICO.jpg';
 
 interface HeaderProps {
   onOpenContact: (source: string) => void;
@@ -40,8 +41,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenContact }) => {
           className="flex items-center gap-2.5 shrink-0 group"
           id="header-brand-logo"
         >
-          <div className="w-8 h-8 rounded bg-[#161D1D] border border-[#252B2B] flex items-center justify-center text-[#80D5D4]">
-            <Box className="w-4 h-4" />
+          <div className="w-10 h-10 overflow-hidden rounded flex items-center justify-center">
+            <img src={logoIco} alt="VoidCube Logo" className="w-full h-full object-cover scale-150" />
           </div>
           <div className="flex flex-col">
             <span className="font-bold text-base text-[#DDE4E3] tracking-tight">

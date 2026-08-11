@@ -1,46 +1,18 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { CheckCircle2, ArrowRight, ShieldCheck, Smartphone, Globe, Sparkles } from 'lucide-react';
 import { PROCESS_STEPS } from '../data/projectsData';
 
 export const Solucao: React.FC = () => {
   const [activeStep, setActiveStep] = useState<number>(1);
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  // Scroll detection to automatically update step as user scrolls down the section on desktop
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!sectionRef.current) return;
-      const rect = sectionRef.current.getBoundingClientRect();
-      const totalHeight = rect.height;
-      const topOffset = -rect.top;
-
-      if (topOffset < 0) {
-        setActiveStep(1);
-      } else if (topOffset < totalHeight * 0.33) {
-        setActiveStep(1);
-      } else if (topOffset < totalHeight * 0.66) {
-        setActiveStep(2);
-      } else {
-        setActiveStep(3);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const currentStepData = PROCESS_STEPS.find((s) => s.stepNumber === activeStep) || PROCESS_STEPS[0];
 
   return (
-    <section ref={sectionRef} className="py-12 sm:py-20 lg:py-24 bg-[#0E1514] w-full max-w-full overflow-hidden" id="solucao">
+    <section className="py-12 sm:py-20 lg:py-24 bg-[#0E1514] w-full max-w-full overflow-hidden" id="solucao">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="max-w-3xl mb-8 sm:mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#161D1D] border border-[#252B2B] text-xs font-semibold text-[#80D5D4] mb-3">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Processo em 3 Etapas • Metodologia VoidCube</span>
-          </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#DDE4E3] tracking-tight">
             Como funciona o processo de trabalho
           </h2>

@@ -16,11 +16,7 @@ export const SobreTeaser: React.FC<SobreTeaserProps> = ({
         
         <div className="p-8 sm:p-10 bg-[#161D1D] rounded-xl border border-[#252B2B]">
           <div className="max-w-3xl space-y-5">
-            
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded text-xs font-semibold bg-[#0E1514] text-[#80D5D4] border border-[#252B2B]">
-              <Target className="w-3.5 h-3.5" />
-              <span>Foco em Resultados Comerciais</span>
-            </div>
+          
 
             <h2 className="text-2xl sm:text-3xl font-bold text-[#DDE4E3] tracking-tight">
               Desenvolvimento focado em eficiência e crescimento para a sua empresa

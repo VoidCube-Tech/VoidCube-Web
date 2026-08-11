@@ -15,7 +15,6 @@ export const ContactModal: React.FC<ContactModalProps> = ({
 }) => {
   const [name, setName] = useState('');
   const [businessName, setBusinessName] = useState('');
-  const [phone, setPhone] = useState('');
   const [description, setDescription] = useState(context.initialNote || '');
 
   if (!isOpen) return null;
@@ -24,9 +23,8 @@ export const ContactModal: React.FC<ContactModalProps> = ({
     e.preventDefault();
     
     // Formatting message for WhatsApp
-    const defaultPhone = '5511999999999'; // VoidCube commercial contact number
-    let messageText = `Olá! Vim pelo site da VoidCube.\n\n`;
-    messageText += `*Origem:* ${context.source}\n`;
+    const defaultPhone = '5591981859653'; // VoidCube commercial contact number
+    let messageText = '';
     if (context.projectTitle) {
       messageText += `*Projeto de Referência:* ${context.projectTitle}\n`;
     }
@@ -36,13 +34,8 @@ export const ContactModal: React.FC<ContactModalProps> = ({
     if (businessName.trim()) {
       messageText += `*Empresa/Negócio:* ${businessName.trim()}\n`;
     }
-    if (phone.trim()) {
-      messageText += `*Telefone/WhatsApp:* ${phone.trim()}\n`;
-    }
     if (description.trim()) {
-      messageText += `*Sobre a necessidade do meu negócio:*\n${description.trim()}\n`;
-    } else {
-      messageText += `*Mensagem:* Gostaria de entender como a VoidCube pode ajudar meu negócio.`;
+      messageText += `${description.trim()}`;
     }
 
     const encodedMessage = encodeURIComponent(messageText);
@@ -103,6 +96,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
             </label>
             <input
               type="text"
+              required
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Ex: Carlos Silva ou Loja Exemplo"
@@ -110,28 +104,17 @@ export const ContactModal: React.FC<ContactModalProps> = ({
             />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+          <div>
             <div>
               <label className="block text-[11px] font-semibold uppercase tracking-wider text-[#BEC9C8] mb-1">
                 Ramo do Seu Negócio
               </label>
               <input
                 type="text"
+                required
                 value={businessName}
                 onChange={(e) => setBusinessName(e.target.value)}
                 placeholder="Ex: Loja, Clínica, Serviços"
-                className="w-full px-3 py-2.5 bg-[#090F0F] border border-[#3F4948] rounded-lg text-xs sm:text-sm text-[#DDE4E3] placeholder-[#889392] focus:outline-none focus:border-[#80D5D4] focus:ring-1 focus:ring-[#80D5D4] transition-all box-border"
-              />
-            </div>
-            <div>
-              <label className="block text-[11px] font-semibold uppercase tracking-wider text-[#BEC9C8] mb-1">
-                Seu WhatsApp (opcional)
-              </label>
-              <input
-                type="tel"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                placeholder="(11) 99999-9999"
                 className="w-full px-3 py-2.5 bg-[#090F0F] border border-[#3F4948] rounded-lg text-xs sm:text-sm text-[#DDE4E3] placeholder-[#889392] focus:outline-none focus:border-[#80D5D4] focus:ring-1 focus:ring-[#80D5D4] transition-all box-border"
               />
             </div>
@@ -143,6 +126,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
             </label>
             <textarea
               rows={3}
+              required
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Descreva se precisa criar um site, refazer um existente ou se quer tirar dúvidas."

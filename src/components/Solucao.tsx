@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { CheckCircle2, ArrowRight, ShieldCheck, Smartphone, Globe, Sparkles } from 'lucide-react';
 import { PROCESS_STEPS } from '../data/projectsData';
+import etapaConversa from '../../assets/etapa_conversa.jpg';
+import etapaConstrucao from '../../assets/etapa_construcao.jpg';
+import etapaSuporte from '../../assets/etapa_suporte.jpg';
 
 export const Solucao: React.FC = () => {
   const [activeStep, setActiveStep] = useState<number>(1);
@@ -64,15 +67,8 @@ export const Solucao: React.FC = () => {
             <div className="p-4 bg-[#090F0F] rounded-lg border border-[#252B2B] text-center my-3">
               {activeStep === 1 && (
                 <div className="space-y-3">
-                  <div className="p-3 bg-[#161D1D] rounded border border-[#80D5D4]/30 text-left space-y-2">
-                    <div className="flex justify-between text-[11px] font-mono text-[#80D5D4]">
-                      <span>📊 DIAGNÓSTICO COMERCIAL</span>
-                      <span>98/100</span>
-                    </div>
-                    <div className="text-[11px] text-[#BEC9C8] space-y-1">
-                      <p>• Velocidade: Otimizada (0.8s)</p>
-                      <p>• Visual no Celular: 100% Responsivo</p>
-                    </div>
+                  <div className="rounded-lg overflow-hidden border border-[#80D5D4]/35 shadow-lg">
+                    <img src={etapaConversa} alt="Etapa Conversa" className="w-full h-auto object-cover" />
                   </div>
                   <p className="text-xs text-[#80D5D4] font-medium">
                     [Demonstração visual do diagnóstico e plano de ação]
@@ -82,17 +78,8 @@ export const Solucao: React.FC = () => {
 
               {activeStep === 2 && (
                 <div className="space-y-3">
-                  <div className="p-3 bg-[#161D1D] rounded border border-[#80D5D4]/30 text-left space-y-2">
-                    <div className="flex items-center justify-between text-[11px] font-mono text-[#80D5D4]">
-                      <span className="flex items-center gap-1">
-                        <Smartphone className="w-3.5 h-3.5" />
-                        PRÉVIA MOBILE
-                      </span>
-                      <span>EM CONSTRUÇÃO</span>
-                    </div>
-                    <p className="text-[11px] text-[#BEC9C8]">
-                      Acompanhe o visual do site sendo montado em tempo real.
-                    </p>
+                  <div className="rounded-lg overflow-hidden border border-[#80D5D4]/35 shadow-lg">
+                    <img src={etapaConstrucao} alt="Etapa Construção" className="w-full h-auto object-cover" />
                   </div>
                   <p className="text-xs text-[#80D5D4] font-medium">
                     [Demonstração visual do site comercial sendo construído]
@@ -102,17 +89,8 @@ export const Solucao: React.FC = () => {
 
               {activeStep === 3 && (
                 <div className="space-y-3">
-                  <div className="p-3 bg-[#161D1D] rounded border border-[#80D5D4]/30 text-left space-y-2">
-                    <div className="flex items-center justify-between text-[11px] font-mono text-[#80D5D4]">
-                      <span className="flex items-center gap-1">
-                        <Globe className="w-3.5 h-3.5" />
-                        LANÇAMENTO
-                      </span>
-                      <span className="text-[#80D5D4] font-bold">100% ONLINE</span>
-                    </div>
-                    <p className="text-[11px] text-[#BEC9C8]">
-                      Site publicado no seu domínio (.com.br) com botões ativos.
-                    </p>
+                  <div className="rounded-lg overflow-hidden border border-[#80D5D4]/35 shadow-lg">
+                    <img src={etapaSuporte} alt="Etapa Suporte" className="w-full h-auto object-cover" />
                   </div>
                   <p className="text-xs text-[#80D5D4] font-medium">
                     [Demonstração visual do site no ar gerando contatos]
@@ -231,25 +209,8 @@ export const Solucao: React.FC = () => {
               {/* Dynamic Image Content per Step */}
               {activeStep === 1 && (
                 <div className="space-y-4 w-full max-w-md animate-in fade-in zoom-in-95 duration-300">
-                  <div className="p-4 bg-[#161D1D] rounded-lg border border-[#80D5D4]/30 text-left space-y-3">
-                    <div className="flex items-center justify-between text-xs font-mono text-[#80D5D4]">
-                      <span>📊 DIAGNÓSTICO COMERCIAL</span>
-                      <span className="px-2 py-0.5 rounded bg-[#1A2121] text-[10px]">PONTUAÇÃO: 98/100</span>
-                    </div>
-                    <div className="space-y-2 text-xs text-[#BEC9C8]">
-                      <div className="flex justify-between pb-1 border-b border-[#252B2B]">
-                        <span>• Velocidade de Carregamento</span>
-                        <span className="text-[#80D5D4] font-bold">Otimizada (0.8s)</span>
-                      </div>
-                      <div className="flex justify-between pb-1 border-b border-[#252B2B]">
-                        <span>• Experiência no Celular</span>
-                        <span className="text-[#80D5D4] font-bold">Responsiva</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span>• Rota de Vendas / WhatsApp</span>
-                        <span className="text-[#80D5D4] font-bold">Pronto para Captar</span>
-                      </div>
-                    </div>
+                  <div className="rounded-lg overflow-hidden border border-[#80D5D4]/35 shadow-lg">
+                    <img src={etapaConversa} alt="Etapa Conversa" className="w-full h-auto object-cover" />
                   </div>
                   <p className="text-xs text-[#80D5D4] font-medium">
                     [Demonstração visual do relatório de diagnóstico e plano de ação comercial]
@@ -259,22 +220,8 @@ export const Solucao: React.FC = () => {
 
               {activeStep === 2 && (
                 <div className="space-y-4 w-full max-w-md animate-in fade-in zoom-in-95 duration-300">
-                  <div className="p-4 bg-[#161D1D] rounded-lg border border-[#80D5D4]/30 text-left space-y-3">
-                    <div className="flex items-center justify-between text-xs font-mono text-[#80D5D4]">
-                      <span className="flex items-center gap-1.5">
-                        <Smartphone className="w-4 h-4" />
-                        PRÉVIA EM TEMPO REAL
-                      </span>
-                      <span className="px-2 py-0.5 rounded bg-[#1A2121] text-[10px]">DESKTOP + MOBILE</span>
-                    </div>
-                    <div className="p-3 bg-[#090F0F] rounded border border-[#252B2B] text-center">
-                      <p className="text-xs text-[#DDE4E3] font-bold">
-                        Site Comercial em Construção Ativa
-                      </p>
-                      <p className="text-[11px] text-[#BEC9C8] mt-1">
-                        Layout moderno adaptado para todos os tamanhos de tela.
-                      </p>
-                    </div>
+                  <div className="rounded-lg overflow-hidden border border-[#80D5D4]/35 shadow-lg">
+                    <img src={etapaConstrucao} alt="Etapa Construção" className="w-full h-auto object-cover" />
                   </div>
                   <p className="text-xs text-[#80D5D4] font-medium">
                     [Demonstração visual do layout do site e sistema sendo construído]
@@ -284,21 +231,8 @@ export const Solucao: React.FC = () => {
 
               {activeStep === 3 && (
                 <div className="space-y-4 w-full max-w-md animate-in fade-in zoom-in-95 duration-300">
-                  <div className="p-4 bg-[#161D1D] rounded-lg border border-[#80D5D4]/30 text-left space-y-3">
-                    <div className="flex items-center justify-between text-xs font-mono text-[#80D5D4]">
-                      <span className="flex items-center gap-1.5">
-                        <Globe className="w-4 h-4" />
-                        LANÇAMENTO & DOMÍNIO
-                      </span>
-                      <span className="px-2 py-0.5 rounded bg-[#004F4F] text-[#80D5D4] text-[10px] font-bold">ONLINE 100%</span>
-                    </div>
-                    <div className="p-3 bg-[#090F0F] rounded border border-[#252B2B] flex items-center justify-between text-xs text-[#DDE4E3]">
-                      <div className="flex items-center gap-2">
-                        <ShieldCheck className="w-4 h-4 text-[#80D5D4]" />
-                        <span>seu-negocio.com.br</span>
-                      </div>
-                      <span className="text-[#80D5D4] text-[11px] font-bold">SSL Ativo</span>
-                    </div>
+                  <div className="rounded-lg overflow-hidden border border-[#80D5D4]/35 shadow-lg">
+                    <img src={etapaSuporte} alt="Etapa Suporte" className="w-full h-auto object-cover" />
                   </div>
                   <p className="text-xs text-[#80D5D4] font-medium">
                     [Demonstração visual do site no ar com botões de contato funcionando]

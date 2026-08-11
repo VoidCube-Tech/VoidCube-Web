@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from 'lucide-react';
+import logoIco from '/assets/VoidCube_ICO.jpg';
 
 interface FooterProps {
   onOpenContact: (source: string) => void;
@@ -21,9 +21,9 @@ export const Footer: React.FC<FooterProps> = () => {
           
           {/* Brand Info */}
           <div className="md:col-span-7 space-y-3">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-[#1A2121] border border-[#252B2B] flex items-center justify-center text-[#80D5D4]">
-                <Box className="w-4 h-4" />
+            <div className="flex items-center gap-2.5">
+              <div className="w-10 h-10 overflow-hidden rounded flex items-center justify-center">
+                <img src={logoIco} alt="VoidCube Logo" className="w-full h-full object-cover scale-150" />
               </div>
               <span className="font-bold text-lg text-[#DDE4E3] tracking-tight">
                 VoidCube
